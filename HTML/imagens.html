@@ -20,9 +20,32 @@
     title="Nyan Cat">
 </p>
 
+<p class="texto">
+    <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/2608327-mobile-application-avatar-web-button-menu-digital-silhouette-style-icon-gratis-vetor.jpg" alt="Avatar" height="50" align="left">
+    Pedro de Castro Kurtz, 20 anos, Desenvolvedor Web
+</p>
+
 <style>
     .rodar {
         width: 513px;
         background-color: #444;
     }
 </style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    const p = document.querySelector('[wm-slider] > p')
+    p.style.display = 'block'
+    mover(p, 1500, -400, 5, () => {
+        console.log('Terminou')
+    })
+</script>
